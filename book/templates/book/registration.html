@@ -1,0 +1,22 @@
+{% load staticfiles %}
+{% load static %}
+{% load i18n admin_modify adminmedia %}
+{% block extrahead %}{{ block.super }}
+<html>
+<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/base.css" />
+<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/widgets.css" />
+<script type="text/javascript" src="/jsi18n/"></script>
+<script type="text/javascript" src="{% admin_media_prefix %}js/core.js"></script>
+
+<title>
+    "this is Registaration page"
+</title>
+<body>
+<h1>Register</h1>
+<form action="{% url 'Registration_User' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+</body>
+</html>
